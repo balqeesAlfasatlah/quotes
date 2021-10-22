@@ -33,7 +33,7 @@ class AppTest {
             Type type = new TypeToken<List<Quotes>>(){}.getType();
             List <Quotes> allTheQuates =  gson.fromJson(fileReader, type);
             assertEquals("Charles Dickens",allTheQuates.get(1).getAuthor());
-            assertEquals(" “Man serves the interests of no creature except himself.” ",allTheQuates.get(1).getText());
+            assertEquals("“It was one of those March days when the sun shines hot and the wind blows cold: when it is summer in the light, and winter in the shade.�?",allTheQuates.get(1).getText());
         }catch (FileNotFoundException e){
             e.printStackTrace();
 
