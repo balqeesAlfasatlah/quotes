@@ -3,9 +3,14 @@
  */
 package quotes;
 
+import com.google.common.reflect.TypeToken;
+import com.google.gson.Gson;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,16 +22,20 @@ class AppTest {
         assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
     }
 
-    @DisplayName("get random quotes")
     @Test void quotesTest() {
-        String path = "./src/test/resources/recentquotes.json";
-        List allTheQuotes = App.getQuotes(path);
-        ArrayList<String> quoteList = new ArrayList<>();
-        for (Object j : allTheQuotes) {
-            quoteList.add(j.toString());
-        }
+        FileReader fileReader = null;
+        String path = "app/src/main/resources/recentquotes.json";
+        Gson gson = new Gson();
 
-       assertEquals(true, quoteList.contains("{author='George Orwell', likes='183 likes', text=' “Man serves the interests of no creature except himself.�? '}"));
-      //  assertEquals(true,quoteList.contains("{author='George Orwell', likes='183 likes', text=' “Man serves the interests of no creature except himself.�? '}"));
+        try {
+            fileReader = new FileReader(path);
+            Type type = new TypeToken<List<Quotes>>(){}.getType();
+            List <Quotes> allTheQuates =  gson.fromJson(fileReader, type);
+            assertEquals("Charles Dickens",allTheQuates.get(1).getAuthor());
+            assertEquals("“It was one of those March days when the sun shines hot and the wind blows cold: when it is summer in the light, and winter in the shade.�?",allTheQuates.get(1).getText());
+        }catch (FileNotFoundException e){
+            e.printStackTrace();
+            
+        }
     }
 }

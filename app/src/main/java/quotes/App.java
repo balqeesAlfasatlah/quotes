@@ -30,13 +30,14 @@ public class App {
         Type type = new TypeToken<List<Quotes>>(){}.getType();
         List <Quotes> allTheQuates =  gson.fromJson(fileReader, type);
         int randomQuotes = (int)(Math.random() * (allTheQuates.size()));
-        System.out.println(allTheQuates.get(randomQuotes).toString());
+        System.out.println(allTheQuates.get(randomQuotes).getAuthor() + "\n" + allTheQuates.get(randomQuotes).getText());
         return allTheQuates;
     }
 
 
 
     public static void main(String[] args) {
+
         String path = "./app/src/main/resources/recentquotes.json";
         getQuotes(path);
     }
