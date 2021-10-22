@@ -22,7 +22,6 @@ class AppTest {
         assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
     }
 
-
     @Test void quotesTest() {
         FileReader fileReader = null;
         String path = "app/src/main/resources/recentquotes.json";
@@ -36,8 +35,7 @@ class AppTest {
             assertEquals("“It was one of those March days when the sun shines hot and the wind blows cold: when it is summer in the light, and winter in the shade.�?",allTheQuates.get(1).getText());
         }catch (FileNotFoundException e){
             e.printStackTrace();
-
-
+            
         }
     }
 }
