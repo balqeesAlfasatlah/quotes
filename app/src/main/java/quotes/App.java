@@ -30,7 +30,8 @@ public class App {
         Type type = new TypeToken<List<Quotes>>(){}.getType();
         List <Quotes> allTheQuates =  gson.fromJson(fileReader, type);
         int randomQuotes = (int)(Math.random() * (allTheQuates.size()));
-        System.out.println(allTheQuates.get(randomQuotes).getAuthor() + "\n" + allTheQuates.get(randomQuotes).getText());
+        System.out.println(allTheQuates.get(randomQuotes).getAuthor() + "\n" + allTheQuates.get(randomQuotes).getText()
+        + "\n" + allTheQuates.get(randomQuotes).getLikes());
         return allTheQuates;
     }
 
