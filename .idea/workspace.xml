@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46a2689f-ea43-464c-bc98-fa216e60d201" name="Changes" comment="" />
     <list default="true" id="46a2689f-ea43-464c-bc98-fa216e60d201" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/quotes/ApiQuotes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/quotes/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quotes/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/quotes/Quotes.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quotes/Quotes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/resources/recentquotes.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/recentquotes.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/quotes/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/quotes/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/newquotes.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/newquotes.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recentquotes.json" beforeDir="false" afterPath="$PROJECT_DIR$/recentquotes.json" afterDir="false" />
     </list>
-
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,17 +60,18 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../test-linked-list" />
-
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="Gradle.AppTest.quotesTest">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\STUDENT\quotes\app\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="quotes.App" />
       <module name="quotes.app.main" />
@@ -190,7 +195,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/test/java/quotes/AppTest.java</url>
-          <line>25</line>
+          <line>28</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

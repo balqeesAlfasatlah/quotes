@@ -22,6 +22,9 @@ class AppTest {
         assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
     }
 
+
+
+
     @Test void quotesTest() {
         FileReader fileReader = null;
         String path = "app/src/main/resources/recentquotes.json";
