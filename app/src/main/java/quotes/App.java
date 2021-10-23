@@ -39,10 +39,51 @@ public class App {
     }
 
 
+    public static String QuotesApi (String api) {
+
+        StringBuilder newLine = new StringBuilder();
+        try {
+
+            URL url = new URL(api);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            connection.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.95 Safari/537.11");
+
+            int status = connection.getResponseCode();
+            if(status == 200){
+                InputStream inputStream = connection.getInputStream();
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+                BufferedReader in = new BufferedReader(inputStreamReader);
+                String line = in.readLine();
+                newLine = new StringBuilder(line);
+                while (line != null) {
+                    System.out.println(line);
+                    line = in.readLine();
+                    if(line != null){
+                        newLine.append(line);
+                    }
+                }
+                in.close();
+                FileWriter fileWriter = new FileWriter("./app/src/main/resources/newquotes.json");
+                fileWriter.write(newLine.toString());
+                fileWriter.close();
+            }else{
+                System.out.println("error " + status);
+                getQuotes("./app/src/main/resources/recentquotes.json");
+            }
+            connection.disconnect();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+       return newLine.toString();
+    }
+
 
     public static void main(String[] args) {
 
          String path = "./app/src/main/resources/recentquotes.json";
-         getQuotes(path);
+         //getQuotes(path);
+        String api = "http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en";
+        QuotesApi(api);
     }
 }

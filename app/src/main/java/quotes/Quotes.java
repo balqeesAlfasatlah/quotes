@@ -8,8 +8,8 @@ public class Quotes {
 
     public Quotes(String author, String likes , String text) {
         this.author = author;
-        this.author = likes;
-        this.author = text;
+        this.likes = likes;
+        this.text = text;
 
     }
 

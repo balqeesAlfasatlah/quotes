@@ -20,3 +20,5 @@ in build.gradle file
 ## Testing 
 
 I pick random quotes from the file to make sure in the test that the quote exist in the file
+- test in intelliJ : by running the app 
+- test in terminl : "./gradlew test"
