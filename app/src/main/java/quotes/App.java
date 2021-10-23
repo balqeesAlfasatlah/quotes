@@ -9,6 +9,8 @@ import com.google.gson.Gson;
 import java.io.FileReader;
 import java.io.*;
 import java.lang.reflect.Type;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.List;
 
 public class App {
@@ -17,10 +19,43 @@ public class App {
         return "Hello World!";
     }
 
+
+    public static void QuotesApi (String api) {
+
+        StringBuilder newLine = new StringBuilder();
+        try {
+
+            URL url = new URL(api);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            connection.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.95 Safari/537.11");
+
+            int status = connection.getResponseCode();
+            if(status == 200){
+            InputStream inputStream = connection.getInputStream();
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+            BufferedReader in = new BufferedReader(inputStreamReader);
+            String line = in.readLine();
+            while (line != null) {
+                System.out.println(line);
+                line = in.readLine();
+            }
+            in.close();
+            }else {
+                System.out.println("error " + status);
+                getQuotes("./app/src/main/resources/recentquotes.json");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+         HttpURLConnection connection;
+    }
+
+
+
     public static List getQuotes(String path){
         Gson gson = new Gson();
         FileReader fileReader = null;
-
         try {
             fileReader = new FileReader(path);
         }catch (FileNotFoundException e){
@@ -39,7 +74,9 @@ public class App {
 
     public static void main(String[] args) {
 
-        String path = "./app/src/main/resources/recentquotes.json";
-        getQuotes(path);
+         String path = "./app/src/main/resources/recentquotes.json";
+       // getQuotes(path);
+        String api = "http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en";
+        QuotesApi(api);
     }
 }
